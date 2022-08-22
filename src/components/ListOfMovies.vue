@@ -1,6 +1,6 @@
 <template>
   <div class="list-of-movies">
-    <movie-card v-for="movie in getMovies" :movie="movie" :key="movie.id" />
+    <movie-card v-for="movie in movies" :movie="movie" :key="movie.id" />
   </div>
 </template>
 
@@ -9,18 +9,11 @@ import MovieCard from "./MovieCard.vue";
 export default {
   components: { MovieCard },
   data() {
-    return {
-      movies: [
-        { name: "test", index: Math.random() * 10000 },
-        { name: "test", index: Math.random() * 10000 },
-        { name: "test", index: Math.random() * 10000 },
-        { name: "test", index: Math.random() * 10000 },
-      ],
-    };
+    return {};
   },
   computed: {
-    getMovies() {
-      return this.movies;
+    movies() {
+      return this.$store.getters.getMovies;
     },
   },
 };
@@ -28,6 +21,9 @@ export default {
 
 <style scoped>
 .list-of-movies {
+  justify-content: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 </style>

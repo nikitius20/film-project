@@ -11,6 +11,9 @@ export default {
     ListOfMovies,
   },
   name: "DashboardView",
+  mounted() {
+    this.$store.dispatch("setMovies");
+  },
 };
 </script>
 
